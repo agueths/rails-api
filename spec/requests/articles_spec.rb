@@ -20,8 +20,8 @@ RSpec.describe 'ArticlesController', type: :request do
       )
       other_article = Article.create(
         {
-          title: 'Tenha sucesso profissional',
-          body: 'Faça Engenharia de Software na Campo Real'
+          title: 'TDD',
+          body: 'Quando os testes vem antes'
         }
       )
 
@@ -62,7 +62,12 @@ RSpec.describe 'ArticlesController', type: :request do
 
   context 'create' do
     it 'should create a new article' do
-      article = { article: { title: 'TDD', body: 'O melhor jeito de programar sem ter erros' } }
+      article = {
+        article: {
+          title: 'TDD',
+          body: 'O melhor jeito de programar sem ter erros'
+          }
+        }
 
       post articles_path, params: article
 
