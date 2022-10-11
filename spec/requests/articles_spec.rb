@@ -97,7 +97,7 @@ RSpec.describe 'ArticlesController', type: :request do
       expect(response).to have_http_status(:success)
       expect(response.body).to include('TDD')
       expect(response.body).to include('O melhor jeito de programar sem ter erros')
-      expect(Comment.find_by(article_id: res['id'])).not_to be_nil
+      expect(Comment.find_by(article_id: res['id'])).to exist
       expect(Article.last.title).to eq('TDD')
     end
   end
