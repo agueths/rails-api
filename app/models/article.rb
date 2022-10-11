@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
+  has_many :comments
 
-    accepts_nested_attributes_for :author, :pages
-    
+  accepts_nested_attributes_for :comments
 end
