@@ -212,13 +212,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   debug
-<<<<<<< HEAD
   jwt
-=======
-  devise
-  devise-jwt
-  dotenv-rails
->>>>>>> a44071c4872e01439086dec7844bca656301df64
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
