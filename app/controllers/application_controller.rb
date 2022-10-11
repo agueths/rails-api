@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def authorized_user
+  def authorized_user?
     decoded_token = decode_token
     if decoded_token
       user_id = decoded_token[0]['user_id']
@@ -24,6 +24,6 @@ class ApplicationController < ActionController::API
   end
 
   def authorization_required
-    render json: {}, status: :unauthorized unless authorized_user
+    render json: { message: I18n.t('need_login') }, status: :unauthorized unless authorized_user?
   end
 end
