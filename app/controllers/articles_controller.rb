@@ -21,6 +21,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, comments_attributes: %i[name comment])
+    params.require(:article).permit(:title, :body)
   end
 end
