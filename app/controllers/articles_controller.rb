@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authorization_required
+
   def index
     @articles = Article.all
     render json: @articles, status: 200
