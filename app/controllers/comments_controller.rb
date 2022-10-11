@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authorization_required
   before_action :set_comment, only: %i[show update destroy]
-  before_action :authenticate_user!
 
   # GET /comments
   def index

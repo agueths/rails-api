@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  need_login: "Login is necessary to access this funcionality"
