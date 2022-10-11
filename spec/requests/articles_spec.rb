@@ -66,14 +66,38 @@ RSpec.describe 'ArticlesController', type: :request do
         article: {
           title: 'TDD',
           body: 'O melhor jeito de programar sem ter erros'
-          }
         }
+      }
 
       post articles_path, params: article
 
       expect(response).to have_http_status(:success)
       expect(response.body).to include('TDD')
       expect(response.body).to include('O melhor jeito de programar sem ter erros')
+      expect(Article.last.title).to eq('TDD')
+    end
+
+    it 'should create a new article with comment' do
+      article = {
+        article: {
+          title: 'TDD',
+          body: 'O melhor jeito de programar sem ter erros',
+          comments_attributes: [
+            {
+              name: 'Alexandre',
+              comment: 'É verdade'
+            }
+          ]
+        }
+      }
+
+      post articles_path, params: article
+      res = JSON.parse(response.body)
+
+      expect(response).to have_http_status(:success)
+      expect(response.body).to include('TDD')
+      expect(response.body).to include('O melhor jeito de programar sem ter erros')
+      expect(Comment.find_by(article_id: res['id'])).to exist
       expect(Article.last.title).to eq('TDD')
     end
   end
